@@ -16,3 +16,9 @@ spring:
     database-platform: org.hibernate.dialect.MySQL8Dialect
 secret:
   key: eThWmZq4t7w!z%C*F-JaNcRfUjXn2r5u8x/A?D(G+KbPeSgVkYp3s6v9y$B&E)H@
+
+# swagger properties
+springdoc:
+ swagger-ui:
+   path: /swagger-ui-custom.html
+ api-docs:    path: /jwt/api-docs

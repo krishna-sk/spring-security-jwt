@@ -15,7 +15,11 @@ import com.jwt.enums.PERMISSIONS;
 import com.jwt.enums.ROLES;
 import com.jwt.repository.UserRepository;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
+
 @SpringBootApplication
+@OpenAPIDefinition(info = @Info(title = "Spring Security JWT API", version = "1.0", description = "Spring Security JWT Application"))
 public class SpringSecurityJwtApplication {
 
 	@Autowired
