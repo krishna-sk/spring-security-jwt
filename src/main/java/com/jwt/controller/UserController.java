@@ -45,7 +45,7 @@ public class UserController {
 	@Autowired
 	private AuthenticationManager authenticationManager;
 
-	@GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<UserModel> getUser(@RequestParam String username) {
 		if (!userService.userExistsByUsername(username)) {
 			log.info("User not found with username {}", username);
@@ -55,7 +55,7 @@ public class UserController {
 		return ResponseEntity.ok(returnUserModel);
 	}
 
-	@GetMapping(value = "/one", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/one", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<UserModel> getOneUser() {
 		List<User> allUsers = userService.getAllUsers();
 		if (!(allUsers.size() > 0)) {
@@ -65,7 +65,7 @@ public class UserController {
 		return ResponseEntity.ok(returnUserModel);
 	}
 
-	@GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<UserModel>> getAllUsers() {
 		List<User> allUsers = userService.getAllUsers();
 		if (!(allUsers.size() > 0)) {
