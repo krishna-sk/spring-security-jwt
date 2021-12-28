@@ -17,9 +17,11 @@ import com.jwt.repository.UserRepository;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.info.License;
 
 @SpringBootApplication
-@OpenAPIDefinition(info = @Info(title = "Spring Security JWT API", version = "1.0", description = "Spring Security JWT Application"))
+@OpenAPIDefinition(info = @Info(title = "Spring Security JWT API", version = "1.0", description = "Spring Security JWT Application", 
+termsOfService = "http://swagger.io/terms/", license = @License(name = "Apache 2.0", url = "http://springdoc.org")))
 public class SpringSecurityJwtApplication {
 
 	@Autowired
@@ -61,4 +63,12 @@ public class SpringSecurityJwtApplication {
 					employeeUpdateDelete, studentReadWrite, studentUpdateDelete));
 		};
 	}
+
+//	@Bean
+//	public OpenAPI customOpenAPI(@Value("${application.description}") String appDesciption,
+//			@Value("${application.version}") String appVersion) {
+//		return new OpenAPI().info(new Info().title("Spring Security JWT API").version(appVersion)
+//				.description(appDesciption).termsOfService("http://swagger.io/terms/")
+//				.license(new License().name("Apache 2.0").url("http://springdoc.org")));
+//	}
 }
