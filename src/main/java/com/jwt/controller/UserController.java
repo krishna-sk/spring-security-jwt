@@ -57,7 +57,7 @@ public class UserController {
 			@ApiResponse(responseCode = "200", description = "Found the user", content = {
 					@Content(mediaType = "application/json", schema = @Schema(implementation = UserModel.class)) }),
 			@ApiResponse(responseCode = "404", description = "User not found", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class))) })
-	@GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<UserModel> getUser(@RequestParam String username) {
 		if (!userService.userExistsByUsername(username)) {
 			log.info("User not found with username {}", username);
@@ -70,7 +70,7 @@ public class UserController {
 	@Operation(summary = "Get a User for login")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Found the user", content = {
 			@Content(mediaType = "application/json", schema = @Schema(implementation = UserModel.class)) }) })
-	@GetMapping(value = "/one", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/one", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<UserModel> getOneUser() {
 		List<User> allUsers = userService.getAllUsers();
 		if (!(allUsers.size() > 0)) {
@@ -85,7 +85,7 @@ public class UserController {
 			@ApiResponse(responseCode = "200", description = "Found all users", content = {
 					@Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = UserModel.class))) }),
 			@ApiResponse(responseCode = "404", description = "Users not found", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class))) })
-	@GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<UserModel>> getAllUsers() {
 		List<User> allUsers = userService.getAllUsers();
 		if (!(allUsers.size() > 0)) {
